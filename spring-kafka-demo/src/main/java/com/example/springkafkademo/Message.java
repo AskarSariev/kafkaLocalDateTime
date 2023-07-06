@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class User implements Serializable {
+public class Message implements Serializable {
     private String name;
     private int age;
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
@@ -15,10 +15,10 @@ public class User implements Serializable {
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     private LocalDateTime birth;
 
-    public User() {
+    public Message() {
     }
 
-    public User(String name, int age, LocalDateTime birth) {
+    public Message(String name, int age, LocalDateTime birth) {
         this.name = name;
         this.age = age;
         this.birth = birth;

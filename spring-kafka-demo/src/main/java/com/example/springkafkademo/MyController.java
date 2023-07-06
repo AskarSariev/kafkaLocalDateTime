@@ -1,8 +1,6 @@
 package com.example.springkafkademo;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.kafka.common.utils.Bytes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,9 +18,9 @@ public class MyController {
     }
 
     @PostMapping("/")
-    public void write(@RequestBody User user) throws JsonProcessingException {
+    public void write(@RequestBody Message message) throws JsonProcessingException {
 //        ObjectMapper objectMapper = new ObjectMapper();
 //        Bytes bytes = new Bytes(objectMapper.writeValueAsBytes(user));
-        kafkaTemplate.send("topic", user);
+        kafkaTemplate.send("topic", message);
     }
 }
